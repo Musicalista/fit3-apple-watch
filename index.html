@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Fit3 — Apple Watch Fluid</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#050507;--panel:#111113;--line:rgba(255,255,255,.08);--text:#f5f5f7;--muted:#a1a1a6;--muted2:#6e6e73;--blue:#0a84ff;--green:#30d158;--red:#ff3b30;--r:18px}
+html{scroll-behavior:smooth}
+body{font:14px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);background:rgba(10,10,12,.72);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1120px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:14px}
+.logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#ff3b30,#ff9f0a);display:grid;place-items:center;font:800 12px system-ui;color:#fff}
+.nav-links{margin-left:auto;display:flex;gap:6px}
+.nav-links a{font:600 12px system-ui;padding:7px 10px;border-radius:999px;color:var(--muted);border:1px solid transparent}
+.nav-links a:hover{background:rgba(255,255,255,.06);color:var(--text);text-decoration:none}
+.nav-links a.primary{background:#fff;color:#000}
+.hero{max-width:1120px;margin:0 auto;padding:44px 18px 18px;display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}
+.eyebrow{font:700 11px system-ui;letter-spacing:.08em;text-transform:uppercase;color:#ff9f0a}
+.hero h1{margin-top:10px;font:800 38px/.95 system-ui;letter-spacing:-.04em}
+.hero h1 span{font-weight:300;color:var(--muted)}
+.hero p{margin-top:12px;color:var(--muted);max-width:560px;font-size:15px}
+.hero p strong{color:var(--text)}
+.btn{appearance:none;border:0;cursor:pointer;font:700 13px system-ui;padding:11px 16px;border-radius:999px;transition:transform .12s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:#fff;color:#000}
+.btn-ghost{background:rgba(255,255,255,.08);color:var(--text);border:1px solid var(--line)}
+.watch-wrap{position:relative;aspect-ratio:4/5;min-height:420px;border-radius:28px;overflow:hidden;background:radial-gradient(600px 400px at 50% -10%,#1c1c1e,transparent 60%),#0a0a0c;border:1px solid var(--line);display:grid;place-items:center;box-shadow:0 30px 80px rgba(0,0,0,.7)}
+.watch{display:flex;flex-direction:column;gap:10px;align-items:center}
+.watch-case{width:228px;height:278px;border-radius:44px;background:#000;border:1.5px solid rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),inset 0 12px 30px rgba(0,0,0,.8);display:flex;flex-direction:column;padding:30px 16px 14px;position:relative;overflow:hidden}
+.watch-face{text-align:center}
+.watch-face .time{font:300 42px/1 system-ui;letter-spacing:-.04em}
+.watch-face .date{font:600 10px system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-top:4px}
+.dock{margin-top:auto;display:flex;gap:8px;padding:8px;background:rgba(255,255,255,.06);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:18px}
+.dock button{flex:1;height:36px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.08);color:var(--text);cursor:pointer;font-size:14px;transition:transform .1s}
+.dock button:active{transform:scale(.96)}
+.dock button.active{background:#fff;color:#000}
+.section{max-width:1120px;margin:0 auto;padding:22px 18px}
+.section h2{font:700 20px system-ui;letter-spacing:-.02em}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.code{margin-top:14px;background:#0a0a0c;border:1px solid var(--line);border-radius:14px;padding:12px 14px;overflow:auto}
+.code pre{font:12px/1.5 ui-monospace,Menlo,monospace;color:#c7c7cc;white-space:pre}
+.footer{max-width:1120px;margin:18px auto 0;padding:28px 18px 40px;color:var(--muted2);font:500 11px system-ui;border-top:1px solid var(--line)}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.grid3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner"><div class="logo">F3</div><div style="line-height:1"><div style="font:800 12px system-ui;letter-spacing:-.02em">Fit3 Project</div><div style="font:600 10px system-ui;color:var(--muted);letter-spacing:.06em;text-transform:uppercase">SM-R390 • R390XXU0AZA3</div></div><div class="nav-links"><a href="#demo">Demo</a><a href="https://github.com" target="_blank" rel="noreferrer" class="primary">GitHub ↗</a></div></div></nav>
+<header class="hero" id="demo">
+<div>
+<div class="eyebrow">Apple Design • Fluid Interfaces — WWDC 2018</div>
+<h1>Apple Watch<br><span>fluido na web e no relógio</span></h1>
+<p><strong>HTML único, sem dependências.</strong> CSS + JS inline. Springs, rubber-banding e ancoragem espacial traduzidos para a web.</p>
+<p style="margin-top:10px"><button class="btn btn-primary" id="btnDemo">Abrir demo</button> <a class="btn btn-ghost" href="https://github.com" target="_blank" rel="noreferrer" style="display:inline-block;text-decoration:none">Ver no GitHub</a></p>
+</div>
+<div class="watch-wrap" id="watchWrap">
+<div class="watch">
+<div class="watch-case" id="watchCase">
+<div class="watch-face">
+<div class="time" id="wTime">10:09</div>
+<div class="date" id="wDate">SEG 18 • 21°</div>
+</div>
+<div style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+<div class="card" style="padding:8px;text-align:center"><div style="font:700 10px system-ui;color:var(--muted)">ATIVIDADE</div><div style="font:700 12px system-ui">340/360</div></div>
+<div class="card" style="padding:8px;text-align:center"><div style="font:700 10px system-ui;color:var(--muted)">CLIMA</div><div>⛅ 21°</div></div>
+<div class="card" style="padding:8px;text-align:center"><div style="font:700 10px system-ui;color:var(--muted)">AGENDA</div><div style="font:700 11px system-ui">Design 10:30</div></div>
+</div>
+<div class="dock" id="dock"><button class="active">◷</button><button>⬢</button><button>◫</button><button>◍</button></div>
+</div>
+</div>
+</div>
+</header>
+<section class="section">
+<h2>O que está neste HTML</h2>
+<div class="grid3">
+<div class="card"><div style="font:700 10px system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Resposta</div><h3 style="margin-top:6px">Instantânea no pointerdown</h3><p style="color:var(--muted);margin-top:6px">Feedback em 100ms, 1:1 durante o arraste, nunca só no final.</p></div>
+<div class="card"><div style="font:700 10px system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Física</div><h3 style="margin-top:6px">Springs interruptíveis</h3><p style="color:var(--muted);margin-top:6px"><code>damping 1.0 / response 0.34</code> — pode ser agarrado no meio sem pulo.</p></div>
+<div class="card"><div style="font:700 10px system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Borda</div><h3 style="margin-top:6px">Rubber-banding</h3><p style="color:var(--muted);margin-top:6px">Resistência progressiva, não trava seco.</p></div>
+</div>
+<div class="code"><pre>/* Tudo inline neste arquivo — copie e publique */
+&lt;link&gt; nenhum  |  &lt;script src&gt; nenhum
+Copie este único .html para o GitHub Pages: Settings → Pages → Deploy from branch → main → /(root)</pre></div>
+</section>
+<footer class="footer">Fit3 Project — SM-R390 • BES1502X • R390XXU0AZA3 • Feito com springs, rubber-banding e ancoragem espacial (WWDC 2018) • <a href="https://github.com">github.com</a></footer>
+<script>
+const t=document.getElementById('wTime'),d=document.getElementById('wDate');
+function tick(){const n=new Date(),h=String(n.getHours()).padStart(2,'0'),m=String(n.getMinutes()).padStart(2,'0');t.textContent=h+':'+m;d.textContent=n.toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit'}).toUpperCase()+' • 21°'}
+tick();setInterval(tick,1000);
+document.getElementById('btnDemo').addEventListener('click',()=>{document.getElementById('watchWrap').scrollIntoView({behavior:'smooth',block:'center'});const c=document.getElementById('watchCase');c.animate([{transform:'scale(1)'},{transform:'scale(1.02)'},{transform:'scale(1)'}],{duration:520,easing:'cubic-bezier(0.16,1,0.3,1)'});if(navigator.vibrate)navigator.vibrate(10)});
+// dock feedback instantâneo
+document.querySelectorAll('.dock button').forEach(b=>{b.addEventListener('pointerdown',()=>{b.style.transform='scale(0.96)';});b.addEventListener('pointerup',()=>{b.style.transform='';});b.addEventListener('click',()=>{document.querySelectorAll('.dock button').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(navigator.vibrate)navigator.vibrate(6)});});
+// reduzido
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.style.setProperty('scroll-behavior','auto')}
+</script>
+</body>
+</html>
